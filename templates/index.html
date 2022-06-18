@@ -4,8 +4,8 @@
 {% block content %}
 
 {% for sticky in stickies %}
-<section class="py-5 text-center container">
-    <div class="row py-lg-5">
+<section class="py-4 text-center container">
+    <div class="row">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">{{ sticky.title }}</h1>
         <p class="lead text-muted">{{ sticky.body }}</p>
@@ -34,7 +34,7 @@
               <p class="card-text">{{ blog.body|truncatewords:20 }}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <a href="{% url 'blog:detail' blog.id %}" type="button" class="btn btn-sm btn-outline-secondary">View</a>
                   <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                 </div>
                 <small class="text-muted">{{ blog.created|timesince }}</small>
