@@ -1,5 +1,5 @@
 from .models import Blog
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 
 def home(request):
@@ -11,3 +11,9 @@ def home(request):
 def detail(request, id):
     blog = Blog.objects.get(id=id)
     return render(request, 'detail.html', {'blog': blog})
+
+
+def delete(request, id):
+    Blog.objects.filter(id=id).delete()
+    return redirect('/')
+
