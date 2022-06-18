@@ -27,7 +27,7 @@ make_draft.short_description = "Draft Selected Articles"
 
 
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ('title', 'image', 'slug', 'status')
+    list_display = ('title', 'image', 'slug', 'status', 'sticky')
     list_filter = ('publish', 'status')
     search_fields = ('title', 'body')
     prepopulated_fields = {'slug': ('title',)}
