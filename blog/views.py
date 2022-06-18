@@ -1,8 +1,7 @@
-from django.http import HttpResponse
+from .models import Blog
 from django.shortcuts import render
-from django.views import View
 
 
 def home(request):
-    return HttpResponse('<h1>Blog</h1>')
-
+    blogs = Blog.objects.all()
+    return render(request, 'index.html', {'blogs': blogs})
