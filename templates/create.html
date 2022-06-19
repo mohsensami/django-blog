@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <div class="bg bg-light py-4">
+        <div class="container">
+            <h1>Create Post</h1>
+            <form action="" method="POST" enctype="multipart/form-data" novalidate>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button>Create</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

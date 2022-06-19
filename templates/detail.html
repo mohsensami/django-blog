@@ -10,7 +10,7 @@
         <h1 class="fw-light">{{ blog.title }}</h1>
         <p class="lead text-muted">{{ blog.body }}</p>
         <p>
-          <a href="#" class="btn btn-primary my-2">Main call to action</a>
+          <a href="{% url 'blog:update' blog.id %}" class="btn btn-primary my-2">Edit</a>
           <a href="{% url 'blog:delete' blog.id %}" class="btn btn-danger my-2">Delete</a>
         </p>
       </div>
