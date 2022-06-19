@@ -33,12 +33,8 @@
 
 
 
-<div class="container">
-    {% if messages %}
-        {% for msg in messages %}
-            <div class="alert alert-{{ msg.tags }}">{{ msg }}</div>
-        {% endfor %}
-    {% endif %}
+<div class="">
+    {% include 'section/messages.html' %}
     {% block content %}{% endblock %}
 </div>
 
