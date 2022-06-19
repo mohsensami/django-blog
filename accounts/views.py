@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import RegisterForm, LoginForm
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 
 def user_register(request):
@@ -38,3 +38,7 @@ def user_login(request):
     return render(request, 'login.html', {'form': form})
 
 
+def user_logout(request):
+    logout(request)
+    messages.success(request, 'user logged out successfully', 'success')
+    return redirect('blog:home')
