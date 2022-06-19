@@ -7,3 +7,10 @@ class RegisterForm(forms.Form):
     password = forms.CharField(label='password', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     first_name = forms.CharField(max_length=10, widget=forms.TextInput(attrs={'class': 'form-control'}))
     last_name = forms.CharField(max_length=10, widget=forms.TextInput(attrs={'class': 'form-control'}))
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField(label='Username', widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(label='password', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+
+

@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
-from .forms import RegisterForm
+from .forms import RegisterForm, LoginForm
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
 
 
-def register(request):
+def user_register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
@@ -18,4 +19,22 @@ def register(request):
     else:
         form = RegisterForm()
     return render(request, 'register.html', {'form': form})
+
+
+def user_login(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            user = authenticate(request, username=cd['username'], password=cd['password'])
+            if user is not None:
+                login(request, user)
+                messages.success(request, 'logged in successfully', 'success')
+                return redirect('blog:home')
+            else:
+                messages.success(request, 'username or password is wrong', 'danger')
+    else:
+        form = LoginForm()
+    return render(request, 'login.html', {'form': form})
+
 
