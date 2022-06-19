@@ -1,5 +1,6 @@
 from .models import Blog
 from django.shortcuts import render, redirect
+from django.contrib import messages
 
 
 def home(request):
@@ -15,5 +16,6 @@ def detail(request, id):
 
 def delete(request, id):
     Blog.objects.filter(id=id).delete()
+    messages.success(request, 'article deleted successfully', 'success')
     return redirect('/')
 
